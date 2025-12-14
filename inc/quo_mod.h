@@ -4,7 +4,8 @@
  * \brief Quotient and remainder in integer space.
  */
 struct quo_mod {
-  int quo, mod;
+  int quo; /*!< Integer quotient. */
+  int mod; /*!< Integer modulus. */
 };
 
 /*!
