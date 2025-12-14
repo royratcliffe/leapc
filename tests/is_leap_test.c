@@ -2,7 +2,7 @@
 
 #include <assert.h>
 
-int year_test(int argc, char **argv) {
+int is_leap_test(int argc, char **argv) {
   /*
    * What year is leap? What year is not leap?
    */
