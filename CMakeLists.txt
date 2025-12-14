@@ -22,3 +22,8 @@ create_test_sourcelist (Tests test_driver.c ${TestNames})
 add_executable (RunTests)
 target_sources (RunTests PRIVATE test_driver.c ${TestsToRun})
 target_link_libraries (RunTests leapc)
+
+find_package (Doxygen)
+if (DOXYGEN_FOUND)
+doxygen_add_docs (doxygen ${PROJECT_SOURCE_DIR})
+endif ()
