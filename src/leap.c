@@ -12,5 +12,12 @@ bool is_leap(int year) {
 }
 
 int leap_thru(int year) {
-  return quo_mod(year, 4).quo - quo_mod(year, 100).quo + quo_mod(year, 400).quo;
+  /*
+   * Expand the quotient terms first for debugging. Make it easier to see the
+   * terms of the thru-sum.
+   */
+  const int q4 = quo_mod(year, 4).quo;
+  const int q100 = quo_mod(year, 100).quo;
+  const int q400 = quo_mod(year, 400).quo;
+  return q4 - q100 + q400;
 }
