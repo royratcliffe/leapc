@@ -13,5 +13,7 @@ struct quo_mod {
  * \param x Numerator integer.
  * \param y Denominator integer. Must not be zero.
  * \return \c quo_mod structure.
+ * \note The \c quo_mod identifier exists in structure namespace as well as
+ * function namespace.
  */
 struct quo_mod quo_mod(int x, int y);
