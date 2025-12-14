@@ -43,3 +43,5 @@ int leap_add(int year);
  * day of the given year.
  */
 int leap_thru(int year);
+
+int leap_day(int year);

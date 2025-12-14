@@ -29,3 +29,7 @@ int leap_thru(int year) {
   const int q400 = quo_mod(year, 400).quo;
   return q4 - q100 + q400;
 }
+
+int leap_day(int year) {
+  return year * 365 + leap_thru(year - 1) + 1;
+}
