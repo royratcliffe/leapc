@@ -8,7 +8,7 @@
  * four, except for years that are divisible by 100, unless they are also
  * divisible by 400.
  * \param year The year to check.
- * \retval \c true if the year is a leap year.
- * \retval \c false if the year is not a leap year.
+ * \retval true if the year is a leap year.
+ * \retval false if the year is not a leap year.
  */
 bool is_leap(int year);
