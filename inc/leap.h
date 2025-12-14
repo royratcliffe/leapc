@@ -44,4 +44,12 @@ int leap_add(int year);
  */
 int leap_thru(int year);
 
+/*!
+ * \brief Counts leap-adjusted days up to some year.
+ * \details Counts the number of days completed up to but not including the
+ * first day of the year.
+ * \param year The year to check.
+ * \retval The number of leap-adjust days completed up to but not including the
+ * first day of the given year.
+ */
 int leap_day(int year);
