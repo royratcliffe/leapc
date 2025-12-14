@@ -31,5 +31,6 @@ struct quo_mod {
  * \return \c quo_mod structure comprising the quotient and modulus.
  * \note The \c quo_mod identifier exists in structure namespace as well as
  * function namespace.
+ * \warning Throws a division-by-zero error if the denominator \c y is zero.
  */
 struct quo_mod quo_mod(int x, int y);
