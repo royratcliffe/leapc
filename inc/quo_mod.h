@@ -9,7 +9,12 @@ struct quo_mod {
 
 /*!
  * \brief Compute the integer quotient and modulus.
- * \details Performs an integer modulo operation.
+ * \details Performs an integer modulo operation. Then subtracts the modulo from
+ * the numerator and applies an integer division.
+ * \code
+ * struct quo_mod qm = quo_mod(x, y);
+ * x == (y * qm.quo + qm.mod);
+ * \endcode
  * \param x Numerator integer.
  * \param y Denominator integer. Must not be zero.
  * \return \c quo_mod structure.
