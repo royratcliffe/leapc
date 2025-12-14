@@ -1,3 +1,9 @@
+/* SPDX-License-Identifier: MIT */
+/*!
+ * \file leap.h
+ * \brief Leap year function prototypes.
+ * \copyright 2024, 2025, Roy Ratcliffe, Northumberland, United Kingdom
+ */
 #pragma once
 
 #include <stdbool.h>
