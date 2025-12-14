@@ -12,6 +12,8 @@
  * \param year Year from 1970.
  * \param mon One-based month. Converts to a zero-based month.
  * \param mday Day of the month starting at one.
+ * \note The standard library's mktime() function has a prescribed minimum start
+ * time of 1970. Times cannot precede the first day on this year.
  */
 static double mkdays(int year, int mon, int mday) {
   struct tm tm;
