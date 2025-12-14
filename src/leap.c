@@ -4,7 +4,9 @@
 bool is_leap(int year) {
   /*
    * Allow C99's standard precedence to rule over operator ordering: modulo
-   * exceeds equality and inequality operators.
+   * exceeds equality and inequality operators. No need for brackets except
+   * perhaps to meet some external standard that requires brackets
+   * pendantically.
    */
   return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 }
