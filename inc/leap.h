@@ -59,9 +59,34 @@ int leap_thru(int year);
  */
 int leap_day(int year);
 
+/*!
+ * \brief Leap offset by year and day.
+ */
 struct leap_off {
-  int year;
-  int day;
+  int year; /*!< Year offset. */
+  int day;  /*!< Day offset. */
 };
 
+/*!
+ * \brief Offsets year and day of year.
+ * \details Year and day of year from year and day of year. Adjust the day so
+ * that it sits in-between 0 and 365 or 366, inclusively.
+ *
+ * The day adjusts to be within the range of 0 to 365 or 366 inclusively, and
+ * the year is adjusted accordingly.
+ *
+ * This function ensures that the day of the year does not exceed the number of
+ * days in the year, accounting for leap years. If the day is negative or
+ * exceeds the number of days in the year, it adjusts the year and day
+ * accordingly. The day is adjusted to be 0-based, meaning it starts from 0 for
+ * the first day of the year. The year is adjusted to account for the number of
+ * days in the year, which can be either 365 or 366 depending on whether it is a
+ * leap year.
+ * \param year The year.
+ * \param day The day of the year, starting from 0.
+ * \retval leap_off.year The year adjusted to account for the number of days in
+ * the year.
+ * \retval leap_off.day The adjusted day of the year, starting from 0 for the
+ * first day.
+ */
 struct leap_off leap_off(int year, int day);
