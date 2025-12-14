@@ -22,6 +22,11 @@ bool is_leap(int year);
 /*!
  * \brief Leaped days completed up to but not including the first day of the
  * given year.
+ * \details Counts the number of leap days that have occurred from year 0 up to
+ * but not including the first day of the given year. This is calculated as the
+ * number of years divisible by 4, minus those divisible by 100, plus those
+ * divisible by 400. This accounts for the rules of leap years in the Gregorian
+ * calendar.
  * \param year The year to check.
  * \retval The number of leap days completed up to but not including the first
  * day of the given year.
