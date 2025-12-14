@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 3.11)
 project (leapc)
 enable_language (C)
-add_library (leapc src/leap.c)
+add_library (leapc src/leap.c src/quo_mod.c)
 target_include_directories (leapc PUBLIC inc)
 
 include (CTest)
