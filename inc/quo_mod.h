@@ -1,3 +1,9 @@
+/* SPDX-License-Identifier: MIT */
+/*!
+ * \file quo_mod.h
+ * \brief Quotient and modulus prototypes.
+ * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
+ */
 #pragma once
 
 /*!
