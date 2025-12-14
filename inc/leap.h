@@ -24,6 +24,11 @@ bool is_leap(int year);
  * \details Answers 1 if the year is a leap year, otherwise answers 0. This is
  * the same result as is_leap() except that the result is an explicit integer; 1
  * for leap years, 0 for non-leap years.
+ *
+ * Compute the number of days in a given year as:
+ * \code
+ * 365 + leap_add(year);
+ * \endcode
  * \param year The year to check.
  * \retval 1 if the year is a leap year.
  * \retval 0 if the year is not a leap year.
