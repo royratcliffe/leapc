@@ -1,6 +1,5 @@
 #include "leap.h"
-#include "mkdays.h"
-#include "diff_days.h"
+#include "days.h"
 
 #include <assert.h>
 

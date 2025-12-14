@@ -1,7 +1,8 @@
 /* SPDX-License-Identifier: MIT */
 /*!
- * \file mkdays.h
- * \brief Function prototypes for making days from standard time.
+ * \file days.h
+ * \brief Function prototypes for making days from standard time and computing
+ * day differences.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
 #pragma once
@@ -18,3 +19,12 @@
  * time of 1970. Times cannot precede the first day of that year.
  */
 double mkdays(int year, int mon, int mday);
+
+/*!
+ * \brief Compute difference in days between two years.
+ * \param year1 Year to compute for.
+ * \param year0 Base year for comparison.
+ * \returns The difference between the "make time" days in-between the two years
+ * and the leap_day() difference.
+ */
+double diff_days(int year1, int year0);
