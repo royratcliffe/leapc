@@ -24,7 +24,9 @@ target_sources (RunTests PRIVATE test_driver.c ${TestsToRun})
 target_link_libraries (RunTests leapc)
 
 # Find the Doxygen output at html/index.html in the build folder.
+# Optimise for C: data structures not classes!
 find_package (Doxygen)
 if (DOXYGEN_FOUND)
+set (DOXYGEN_OPTIMIZE_OUTPUT_FOR_C YES)
 doxygen_add_docs (doxygen ${PROJECT_SOURCE_DIR})
 endif ()
