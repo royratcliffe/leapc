@@ -1,3 +1,9 @@
+/* SPDX-License-Identifier: MIT */
+/*!
+ * \file leap.c
+ * \brief Leap year function implementations.
+ * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
+ */
 #include "leap.h"
 #include "quo_mod.h"
 
