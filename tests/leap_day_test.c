@@ -1,20 +1,8 @@
 #include "leap.h"
 #include "mkdays.h"
+#include "diff_days.h"
 
 #include <assert.h>
-
-/*!
- * \brief Compute difference in days.
- * \param year1 Year to compute for.
- * \param year0 Base year for comparison.
- * \returns The difference between the "make time" days in-between the two years
- * and the leap_day() difference.
- */
-static double diff_days(int year1, int year0) {
-  double x = mkdays(year1, 1, 1) - mkdays(year0, 1, 1);
-  int y = leap_day(year1) - leap_day(year0);
-  return x - y;
-}
 
 int leap_day_test(int argc, char **argv) {
   assert(366 == leap_day(1));
