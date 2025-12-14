@@ -2,6 +2,7 @@
 /*!
  * \file quo_mod.h
  * \brief Quotient and modulus prototypes.
+ * \details Header file for quotient and modulus function implementations.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
 #pragma once

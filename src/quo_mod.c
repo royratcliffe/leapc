@@ -2,6 +2,8 @@
 /*!
  * \file quo_mod.c
  * \brief Quotient and modulus function implementations.
+ * \details Implements the quotient and modulus function declared in
+ * the \c quo_mod.h header file.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
 #include "quo_mod.h"
