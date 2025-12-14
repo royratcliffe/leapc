@@ -30,6 +30,4 @@ int leap_thru(int year) {
   return q4 - q100 + q400;
 }
 
-int leap_day(int year) {
-  return year * 365 + leap_thru(year - 1) + 1;
-}
+int leap_day(int year) { return year * 365 + leap_thru(year - 1) + 1; }
