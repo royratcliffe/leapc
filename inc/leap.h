@@ -53,3 +53,10 @@ int leap_thru(int year);
  * first day of the given year.
  */
 int leap_day(int year);
+
+struct leap_off {
+  int year;
+  int day;
+};
+
+struct leap_off leap_off(int year, int day);
