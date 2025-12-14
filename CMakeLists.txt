@@ -23,6 +23,7 @@ add_executable (RunTests)
 target_sources (RunTests PRIVATE test_driver.c ${TestsToRun})
 target_link_libraries (RunTests leapc)
 
+# Find the Doxygen output at html/index.html in the build folder.
 find_package (Doxygen)
 if (DOXYGEN_FOUND)
 doxygen_add_docs (doxygen ${PROJECT_SOURCE_DIR})
