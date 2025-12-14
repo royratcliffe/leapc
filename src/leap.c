@@ -1,3 +1,5 @@
 #include "leap.h"
 
-bool is_leap_year(int y) { return y % 4 == 0 && (y % 100 != 0 || y % 400 == 0); }
+bool is_leap(int year) {
+  return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+}
