@@ -20,6 +20,17 @@
 bool is_leap(int year);
 
 /*!
+ * \brief Adds one for a leap year otherwise zero.
+ * \details Answers 1 if the year is a leap year, otherwise answers 0. This is
+ * the same result as is_leap() except that the result is an explicit integer; 1
+ * for leap years, 0 for non-leap years.
+ * \param year The year to check.
+ * \retval 1 if the year is a leap year.
+ * \retval 0 if the year is not a leap year.
+ */
+int leap_add(int year);
+
+/*!
  * \brief Leaped days completed up to but not including the first day of the
  * given year.
  * \details Counts the number of leap days that have occurred from year 0 up to

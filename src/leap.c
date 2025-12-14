@@ -11,6 +11,8 @@ bool is_leap(int year) {
   return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 }
 
+int leap_add(int year) { return is_leap(year) ? 1 : 0; }
+
 int leap_thru(int year) {
   /*
    * Expand the quotient terms first for debugging. Make it easier to see the
