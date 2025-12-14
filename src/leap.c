@@ -1,4 +1,5 @@
 #include "leap.h"
+#include "quo_mod.h"
 
 bool is_leap(int year) {
   /*
@@ -6,4 +7,8 @@ bool is_leap(int year) {
    * exceeds equality and inequality operators.
    */
   return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
+}
+
+int leap_thru(int year) {
+  return quo_mod(year, 4).quo - quo_mod(year, 100).quo + quo_mod(year, 400).quo;
 }

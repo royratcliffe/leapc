@@ -18,3 +18,12 @@
  * \retval false if the year is not a leap year.
  */
 bool is_leap(int year);
+
+/*!
+ * \brief Leaped days completed up to but not including the first day of the
+ * given year.
+ * \param year The year to check.
+ * \retval The number of leap days completed up to but not including the first
+ * day of the given year.
+ */
+int leap_thru(int year);
