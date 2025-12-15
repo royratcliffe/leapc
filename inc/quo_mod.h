@@ -17,7 +17,7 @@ struct quo_mod {
 
 /*!
  * \brief Compute the integer quotient and modulus.
- * \details Performs an integer modulo operation. Then subtracts the modulo from
+ * \details Performs an integer modulo operation. Then subtracts the modulus from
  * the numerator and applies an integer division in order to compute the
  * quotient.
  *

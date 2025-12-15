@@ -1,8 +1,8 @@
 /* SPDX-License-Identifier: MIT */
 /*!
  * \file quo_mod.c
- * \brief Quotient and modulus function implementations.
- * \details Implements the quotient and modulus function declared in
+ * \brief Quotient and modulo function implementations.
+ * \details Implements the quotient and modulo function declared in
  * the \c quo_mod.h header file.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
