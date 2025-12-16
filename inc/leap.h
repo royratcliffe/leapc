@@ -2,6 +2,8 @@
 /*!
  * \file leap.h
  * \brief Leap year function prototypes.
+ * \details Provides functions to determine if a year is a leap year, count leap
+ * years up to a given year, and calculate leap-adjusted days.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
 #pragma once
