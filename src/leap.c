@@ -13,6 +13,11 @@ bool is_leap(int year) {
    * exceeds equality and inequality operators. No need for brackets except
    * perhaps to meet some external standard that requires brackets
    * pendantically.
+   *
+   * A year is a leap year if it is divisible by 4, except for years that
+   * are divisible by 100, unless they are also divisible by 400. Optimisation
+   * using the \c & operator is possible but reduces readability. Instead, rely
+   * on compiler optimisation.
    */
   return year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 }
