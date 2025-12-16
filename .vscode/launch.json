@@ -8,7 +8,7 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${command:cmake.launchTargetPath}",
+            "program": "${cmake.testProgram}",
             "args": [
                 // Follow the link below to understand how to pass test arguments.
                 // https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/debug-launch.md
