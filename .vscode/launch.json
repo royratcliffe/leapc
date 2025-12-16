@@ -10,6 +10,7 @@
             "request": "launch",
             "program": "${cmake.testProgram}",
             "args": [
+                // Pass the name of the test to run as argument.
                 // Follow the link below to understand how to pass test arguments.
                 // https://github.com/microsoft/vscode-cmake-tools/blob/main/docs/debug-launch.md
                 "${cmake.testArgs}"
