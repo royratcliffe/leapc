@@ -33,14 +33,6 @@
             ]
         },
         {
-            "type": "cmake",
-            "request": "launch",
-            "name": "CMake: Configure project",
-            "cmakeDebugType": "configure",
-            "clean": false,
-            "configureAll": false
-        },
-        {
             "name": "(Windows) Launch",
             "type": "cppvsdbg",
             "request": "launch",
@@ -52,6 +44,14 @@
             "cwd": "${workspaceRoot}",
             "environment": [],
             "console": "integratedTerminal"
+        },
+        {
+            "type": "cmake",
+            "request": "launch",
+            "name": "CMake: Configure project",
+            "cmakeDebugType": "configure",
+            "clean": false,
+            "configureAll": false
         }
     ]
 }
