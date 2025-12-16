@@ -36,16 +36,16 @@ bool is_leap(int year);
 int leap_add(int year);
 
 /*!
- * \brief Leaped days completed up to but not including the first day of the
- * given year.
- * \details Counts the number of leap days that have occurred from year 0 up to
+ * \brief Leap years completed from year 0 up to but not including the first day
+ * of the specified year.
+ * \details Counts the number of leap years that have occurred from year 0 up to
  * but not including the first day of the given year. This is calculated as the
  * number of years divisible by 4, minus those divisible by 100, plus those
  * divisible by 400. This accounts for the rules of leap years in the Gregorian
  * calendar.
- * \param year The year to check.
- * \returns The number of leap days completed up to but not including the first
- * day of the given year.
+ * \param year The target year up to which leap years should be counted.
+ * \returns The total number of leap years from year 0 through the specified
+ * year.
  */
 int leap_thru(int year);
 
