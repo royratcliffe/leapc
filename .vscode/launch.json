@@ -44,12 +44,9 @@
             "name": "(Windows) Launch",
             "type": "cppvsdbg",
             "request": "launch",
-            "program": "${command:cmake.launchTargetPath}",
+            "program": "${cmake.testProgram}",
             "args": [
-                // Run all the tests for now. Set a breakpoint and hit F5 to
-                // launch the debugger. Work out how to debug specific tests
-                // using the Test Explorer.
-                "-A"
+                "${cmake.testArgs}"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceRoot}",
