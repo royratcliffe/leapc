@@ -9,7 +9,21 @@
 #include "quo_mod.h"
 
 struct quo_mod quo_mod(int x, int y) {
-  const int mod = x % y;
+  int mod = x % y;
+  /*
+   * Adjust negative modulus to be positive. Ensures that:
+   *
+   *    x = quo * y + mod
+   *
+   * where
+   *
+   *    0 <= mod < y
+   *
+   * If mod is negative, add y to it.
+   */
+  if (mod < 0) {
+    mod += y;
+  }
   /*
    * Returns a quo_mod structure by casting an initialiser. Is this portable?
    */
