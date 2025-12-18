@@ -6,7 +6,8 @@
  * years up to a given year, and calculate leap-adjusted days.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
-#pragma once
+#ifndef __LEAP_H__
+#define __LEAP_H__
 
 #include <stdbool.h>
 
@@ -92,3 +93,5 @@ struct leap_off {
  * first day.
  */
 struct leap_off leap_off(int year, int day);
+
+#endif /* __LEAP_H__ */

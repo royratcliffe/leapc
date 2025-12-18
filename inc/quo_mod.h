@@ -5,7 +5,8 @@
  * \details Header file for quotient and modulus function implementations.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
-#pragma once
+#ifndef __QUO_MOD_H__
+#define __QUO_MOD_H__
 
 /*!
  * \brief Quotient and remainder in integer space.
@@ -35,3 +36,5 @@ struct quo_mod {
  * \warning Throws a division-by-zero error if the denominator \c y is zero.
  */
 struct quo_mod quo_mod(int x, int y);
+
+#endif /* __QUO_MOD_H__ */
