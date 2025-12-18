@@ -16,6 +16,17 @@ int quo_mod_test(int argc, char **argv) {
       struct quo_mod qm = quo_mod(x, y);
       assert(x == (y * qm.quo + qm.mod));
     }
+
+  /*
+   * Cross-check modulo results against Lua's nummod() function. Lua's modulo
+   * function is defined in lmathlib.c as:
+   *
+   *    #define luai_nummod(a, b) ((a) - floor((double)(a) / (b)) * (b))
+   *
+   * This definition ensures that the result of the modulo operation has the
+   * same sign as the divisor (b), which is a common convention in programming
+   * languages.
+   */
   for (int x = -333; x <= 333; x++)
     for (int y = -333; y <= 333; y++) {
       if (y == 0)
