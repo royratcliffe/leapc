@@ -25,7 +25,7 @@ target_link_libraries (RunTests leapc m)
 
 # Find the Doxygen output at html/index.html in the build folder.
 # Optimise for C: data structures not classes!
-find_package (Doxygen)
+find_package (Doxygen OPTIONAL_COMPONENTS dot mscgen dia)
 if (DOXYGEN_FOUND)
 set (DOXYGEN_OPTIMIZE_OUTPUT_FOR_C YES)
 set (DOXYGEN_EXCLUDE ${PROJECT_BINARY_DIR}/test_driver.c)
