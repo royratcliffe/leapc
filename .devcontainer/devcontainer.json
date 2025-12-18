@@ -8,6 +8,9 @@
 		// Install CMake version 4.x.x via Homebrew.
 		"ghcr.io/devcontainers-extra/features/homebrew-package:1": {
 			"package": "cmake"
+		},
+		"ghcr.io/devcontainers-extra/features/apt-packages:1": {
+			"packages": "ninja-build,doxygen,graphviz,mscgen,dia"
 		}
 	}
 
