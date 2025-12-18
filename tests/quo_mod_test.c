@@ -3,8 +3,8 @@
 #include <assert.h>
 
 int quo_mod_test(int argc, char **argv) {
-  for (int x = -3; x <= 3; x++)
-    for (int y = -3; y <= 3; y++) {
+  for (int x = -333; x <= 333; x++)
+    for (int y = -333; y <= 333; y++) {
       if (y == 0)
         continue;
       struct quo_mod qm = quo_mod(x, y);
