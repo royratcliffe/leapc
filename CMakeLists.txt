@@ -21,7 +21,7 @@ create_test_sourcelist (Tests test_driver.c ${TestNames})
 
 add_executable (RunTests)
 target_sources (RunTests PRIVATE test_driver.c ${TestsToRun})
-target_link_libraries (RunTests leapc)
+target_link_libraries (RunTests leapc m)
 
 # Find the Doxygen output at html/index.html in the build folder.
 # Optimise for C: data structures not classes!
