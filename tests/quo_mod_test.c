@@ -3,6 +3,7 @@
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>
+#include <stdlib.h>
 
 #define luai_nummod(a, b) ((a) - floor((double)(a) / (b)) * (b))
 
@@ -42,5 +43,6 @@ int quo_mod_test(int argc, char **argv) {
       }
       assert(lua_mod == qm.mod);
     }
-  return 0;
+
+  return EXIT_SUCCESS;
 }
