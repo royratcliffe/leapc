@@ -12,6 +12,12 @@
 #include <stdbool.h>
 
 /*!
+ * \brief Leap offset at 1900.
+ * \details MCM is Roman numerals for 1900.
+ */
+#define LEAP_MCM 693961
+
+/*!
  * \brief Determine if a year is a leap year.
  * \details Is a year a leap year? A year is a leap year if it is divisible by
  * four, except for years that are divisible by 100, unless they are also
