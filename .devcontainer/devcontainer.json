@@ -3,7 +3,13 @@
 {
 	"name": "Ubuntu",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/base:noble"
+	"image": "mcr.microsoft.com/devcontainers/base:noble",
+	"features": {
+		// Install CMake version 4.x.x via Homebrew.
+		"ghcr.io/devcontainers-extra/features/homebrew-package:1": {
+			"package": "cmake"
+		}
+	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
 	// "features": {},
