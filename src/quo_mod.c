@@ -9,19 +9,20 @@
 #include "quo_mod.h"
 
 struct quo_mod quo_mod(int x, int y) {
-  int mod = x % y;
   /*
-   * Adjust negative modulus to be positive. Ensures that:
-   *
-   *    x = quo * y + mod
-   *
-   * where
-   *
-   *    0 <= mod < y
-   *
-   * If mod is negative, add y to it.
+   * Compute modulus using C's % operator.
+   * Note that C's % operator can yield negative results when
+   * the numerator is negative.
    */
-  if (mod < 0) {
+  int mod = x % y;
+  /* Adjust negative modulus to be positive. Ensures that:
+   *
+   *    0 <= mod < y    when y > 0
+   *    y < mod <= 0    when y < 0
+   *
+   * This matches Lua's modulo operator behaviour.
+   */
+  if (mod != 0 && (mod ^ y) < 0) {
     mod += y;
   }
   /*

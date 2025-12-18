@@ -31,9 +31,9 @@ struct quo_mod {
  * \param x Numerator integer.
  * \param y Denominator integer. Must not be zero.
  * \return \c quo_mod structure comprising the quotient and modulus.
- * \remarks The modulus is always non-negative, even if the numerator is
- * negative. This is achieved by adjusting the modulus when negative by adding
- * the denominator to it.
+ * \remarks Like Lua's modulo operator, this function ensures that the
+ * modulus is always non-negative when the denominator is positive, and always
+ * non-positive when the denominator is negative.
  * \note The \c quo_mod identifier exists in structure namespace as well as
  * function namespace.
  * \warning Throws a division-by-zero error if the denominator \c y is zero.
