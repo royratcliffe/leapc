@@ -18,5 +18,9 @@ static inline bool equal_leap_off(struct leap_off lhs, struct leap_off rhs) {
 
 int leap_off_test(int argc, char **argv) {
   assert(equal_leap_off((struct leap_off){0, 365}, leap_off(1, -1)));
+  assert(equal_leap_off((struct leap_off){1, 0}, leap_off(1, 0)));
+  assert(equal_leap_off((struct leap_off){4, 365}, leap_off(5, -1)));
+  assert(equal_leap_off((struct leap_off){5, 0}, leap_off(4, 366)));
+  assert(equal_leap_off((struct leap_off){2024, 365}, leap_off(2024, 365)));
   return EXIT_SUCCESS;
 }
