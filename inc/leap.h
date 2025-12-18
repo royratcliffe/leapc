@@ -66,7 +66,7 @@ int leap_day(int year);
  */
 struct leap_off {
   int year; /*!< Year offset. */
-  int day;  /*!< Day offset. */
+  int day;  /*!< Day of year offset. */
 };
 
 /*!
