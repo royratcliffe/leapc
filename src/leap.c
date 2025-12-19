@@ -88,6 +88,18 @@ int leap_yday(int year, int month) {
   return YDAY[qm.mod] + (month > 2 ? leap_add(year + qm.quo) : 0);
 }
 
+/*
+ * Converts a (year, day-of-year) pair into a (year, month, day-of-month)
+ * triple.
+ *
+ * Algorithm:
+ *  - Normalise the (year, day) pair using leap_off to ensure day is within
+ *    year's bounds.
+ *  - Iterate months from 1 to 12, subtracting the number of days in each month
+ *    from day until day is less than the number of days in the current month.
+ *  - The current month is the target month, and day + 1 is the target day of
+ *    month (to convert from 0-based to 1-based).
+ */
 struct leap_date leap_date(int year, int day) {
   struct leap_off off = leap_off(year, day);
   int month = 1;
