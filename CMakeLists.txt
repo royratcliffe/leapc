@@ -21,7 +21,12 @@ create_test_sourcelist (Tests test_driver.c ${TestNames})
 
 add_executable (RunTests)
 target_sources (RunTests PRIVATE test_driver.c ${TestsToRun})
-target_link_libraries (RunTests leapc m)
+target_link_libraries (RunTests PRIVATE leapc)
+
+message (STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
+if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
+    target_link_libraries (RunTests PRIVATE m)
+endif ()
 
 # Find the Doxygen output at html/index.html in the build folder.
 # Optimise for C: data structures not classes!
