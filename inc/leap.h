@@ -100,4 +100,54 @@ struct leap_off {
  */
 struct leap_off leap_off(int year, int day);
 
+/*!
+ * \brief Day of month from year and month.
+ * \details Returns the number of days in the month for the given year and
+ * month. Accounts for leap years in February.
+ * \param year The year.
+ * \param month The month, starting from 1 for January.
+ * \retval The number of days in the month, accounting for leap years in
+ * February.
+ */
+int leap_mday(int year, int month);
+
+/*!
+ * \brief Day of year from year and month.
+ * \details Returns the day of the year for the given year and month. The day of
+ * the year is calculated by summing the days in the months up to the given
+ * month, and adding an extra day if the month is after February in a leap year.
+ * \param year The year.
+ * \param month The month, starting from 1 for January.
+ * \retval The day of the year, starting from 0 for first of January.
+ */
+int leap_yday(int year, int month);
+
+/*!
+ * \brief Leap year date structure.
+ * \details Represents a date in terms of year, month, and day of month,
+ * accounting for leap years.
+ * \retval leap_date.year The year.
+ * \retval leap_date.month The month of the year (1-12).
+ * \retval leap_date.day The day of the month (1-31).
+ */
+struct leap_date {
+  int year;  /*!< Year. */
+  int month; /*!< Month of year starting from 1 for January. */
+  int day;   /*!< Day of month starting from 1 for the first day of the month. */
+};
+
+/*!
+ * \brief Date from year and day of year.
+ * \details Adjust the day so that it sits in-between 1 and 365 (or 366) inclusively.
+ * Returns the year, month, and day of the month for the given year and day of
+ * year. The day of the month is adjusted to be 1-based, meaning it starts from 1
+ * for the first day of the month.
+ * \param year The year.
+ * \param day The day of the year, starting from 0 for first of January.
+ * \retval leap_date.year The year.
+ * \retval leap_date.month The month, starting from 1 for January.
+ * \retval leap_date.day The day of the month, starting from 1 for the first day of the month.
+ */
+struct leap_date leap_date(int year, int day);
+
 #endif /* __LEAP_H__ */
