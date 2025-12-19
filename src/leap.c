@@ -116,3 +116,9 @@ struct leap_date leap_date(int year, int day) {
       .day = off.day + 1,
   };
 }
+
+struct leap_off leap_from(int year, int month, int day) {
+  const struct quo_mod qm = quo_mod(month - 1, 12);
+  year += qm.quo;
+  return leap_off(year, leap_yday(year, qm.mod + 1) + day - 1);
+}

@@ -147,4 +147,10 @@ struct leap_date {
  */
 struct leap_date leap_date(int year, int day);
 
+static inline struct leap_date leap_date_from_off(struct leap_off off) {
+  return leap_date(off.year, off.day);
+}
+
+struct leap_off leap_from(int year, int month, int day);
+
 #endif /* __LEAP_H__ */
