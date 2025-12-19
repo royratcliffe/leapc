@@ -46,6 +46,26 @@ int leap_thru(int year) {
  */
 int leap_day(int year) { return year * 365 + leap_thru(year - 1) + 1; }
 
+/*
+ * Normalises an arbitrary day offset relative to a given year into a canonical
+ * (year, day-of-year) pair where 0 <= day < days_in_year.
+ *
+ * Algorithm:
+ *  - Compute the current year's length: `days = 365 + leap_add(year)`.
+ *  - While `day` lies outside `[0, days)`:
+ *      * Jump whole years using floor-like quotient semantics:
+ *        `year0 = year + quo_mod(day, days).quo`.
+ *      * Rebase the offset to the new year using absolute day counts:
+ *        `day += leap_day(year) - leap_day(year0)`.
+ *      * Update `year` to `year0` and recompute `days` for that year.
+ *  - Return the resulting `(year, day)` which is within the year's bounds.
+ *
+ * Notes:
+ *  - `quo_mod` uses Lua-style modulo semantics so negative offsets jump the
+ *    correct number of whole years in the negative direction.
+ *  - Differences of `leap_day(...)` cancel the constant epoch offset, ensuring
+ *    exact rebasing regardless of the `+1` anchor in `leap_day`.
+ */
 struct leap_off leap_off(int year, int day) {
   int days = 365 + leap_add(year);
   while (day < 0 || day >= days) {
