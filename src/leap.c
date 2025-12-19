@@ -37,6 +37,13 @@ int leap_thru(int year) {
   return q4 - q100 + q400;
 }
 
+/*
+ * The `+ 1` anchors the epoch: year 0 maps to day 0. The term `year * 365 +
+ * leap_thru(year - 1)` counts days up to (but not including) the target year.
+ * Without the `+ 1`, `leap_day(0)` would be `-1`. Adding `1` fixes this:
+ * `leap_day(0) == 0` and `leap_day(1) == 366`. Constant offsets cancel in
+ * subtractions, preserving year differences.
+ */
 int leap_day(int year) { return year * 365 + leap_thru(year - 1) + 1; }
 
 struct leap_off leap_off(int year, int day) {
