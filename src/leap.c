@@ -104,7 +104,7 @@ struct leap_date leap_date(int year, int day) {
   struct leap_off off = leap_off(year, day);
   int month = 1;
   for (; month <= 12; ++month) {
-    int mday = leap_mday(off.year, month);
+    const int mday = leap_mday(off.year, month);
     if (off.day < mday) {
       break;
     }
