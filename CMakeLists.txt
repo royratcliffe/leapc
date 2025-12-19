@@ -27,8 +27,12 @@ target_link_libraries (RunTests PRIVATE leapc)
 # functions like `floor`. The GNU and Clang compilers do not auto-link the math
 # library. The GNU C compiler defines CMAKE_C_COMPILER_ID as "GNU" and the Clang
 # compiler defines it as "Clang".
+#
+# On other compilers (like MSVC), the math functions are in the standard C
+# library, so no separate linking is needed. Do not link the math library on
+# Windows (WIN32) because it is not needed there.
 message (STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
-if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang")
+if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang" AND NOT WIN32)
     target_link_libraries (RunTests PRIVATE m)
 endif ()
 
