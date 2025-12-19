@@ -126,9 +126,6 @@ int leap_yday(int year, int month);
  * \brief Leap year date structure.
  * \details Represents a date in terms of year, month, and day of month,
  * accounting for leap years.
- * \retval leap_date.year The year.
- * \retval leap_date.month The month of the year (1-12).
- * \retval leap_date.day The day of the month (1-31).
  */
 struct leap_date {
   int year;  /*!< Year. */
