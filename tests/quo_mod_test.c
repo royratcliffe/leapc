@@ -11,8 +11,8 @@ static double nummod(double x, double y) { return luai_nummod(x, y); }
 
 int quo_mod_test(int argc, char **argv) {
   /*
-   * Verify that x = y * quo + mod holds for all combinations of x and y in
-   * some reasonable range.
+   * Verify that x = y * quo + mod invariant holds for all combinations of x and
+   * y in some reasonable range.
    */
   for (int x = -333; x <= 333; x++)
     for (int y = -333; y <= 333; y++) {
