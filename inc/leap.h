@@ -6,6 +6,7 @@
  * years up to a given year, and calculate leap-adjusted days.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
+
 #ifndef __LEAP_H__
 #define __LEAP_H__
 
