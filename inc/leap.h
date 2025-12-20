@@ -214,7 +214,7 @@ struct leap_date leap_absdate(int day_off);
  * (January 1, 1970).
  * \param year The year.
  * \param month The month, starting from 1 for January.
- * \param day The day of the month, starting from 1 for the first day of the month.
+ * \param day Day of the month, starting from 1 for the first day of the month.
  * \returns The absolute date as the number of days since the epoch.
  */
 int leap_absfrom(int year, int month, int day);
