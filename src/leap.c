@@ -80,13 +80,13 @@ struct leap_off leap_off(int year, int day_off) {
 int leap_mday(int year, int month) {
   static const int MDAY[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
   const struct quo_mod qm = quo_mod(month - 1, 12);
-  return MDAY[qm.mod] + (month == 2 ? leap_add(year + qm.quo) : 0);
+  return MDAY[qm.mod] + (qm.mod == 1 ? leap_add(year + qm.quo) : 0);
 }
 
 int leap_yday(int year, int month) {
   static const int YDAY[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
   const struct quo_mod qm = quo_mod(month - 1, 12);
-  return YDAY[qm.mod] + (month > 2 ? leap_add(year + qm.quo) : 0);
+  return YDAY[qm.mod] + (qm.mod > 1 ? leap_add(year + qm.quo) : 0);
 }
 
 /*
