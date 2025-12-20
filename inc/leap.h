@@ -206,7 +206,7 @@ struct leap_date leap_date(int year, int day_off);
  * \param off The leap_off structure containing year and day of year.
  * \return The corresponding leap_date structure.
  */
-struct leap_date leap_date_from_off(struct leap_off off);
+static inline struct leap_date leap_date_from_off(struct leap_off off) { return leap_date(off.year, off.day); }
 
 /*!
  * \brief Day from year, month and day of month.
@@ -228,7 +228,9 @@ struct leap_off leap_from(int year, int month, int day);
  * \returns The corresponding leap_off structure. The absolute date as the
  * number of days since the epoch.
  */
-struct leap_off leap_from_date(struct leap_date date);
+static inline struct leap_off leap_from_date(struct leap_date date) {
+  return leap_from(date.year, date.month, date.day);
+}
 
 /*!
  * \brief Absolute date from day of year.
@@ -239,7 +241,7 @@ struct leap_off leap_from_date(struct leap_date date);
  * of the year.
  * \returns The absolute date as the number of days since the epoch.
  */
-struct leap_date leap_absdate(int day_off);
+struct leap_date leap_abs_date(int day_off);
 
 /*!
  * \brief Absolute date from year, month, and day of month.
@@ -251,6 +253,14 @@ struct leap_date leap_absdate(int day_off);
  * \param day Day of the month, starting from 1 for the first day of the month.
  * \returns The absolute date as the number of days since the epoch.
  */
-int leap_absfrom(int year, int month, int day);
+int leap_abs_from(int year, int month, int day);
+
+/*!
+ * \brief Absolute date from leap_date structure.
+ * \details Returns the absolute date from the given leap_date structure.
+ * \param date The leap_date structure.
+ * \returns The absolute date as the number of days since the epoch.
+ */
+static inline int leap_abs_from_date(struct leap_date date) { return leap_abs_from(date.year, date.month, date.day); }
 
 #endif /* __LEAP_H__ */
