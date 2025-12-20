@@ -3,10 +3,6 @@
 #include <assert.h>
 #include <stdlib.h>
 
-static inline bool equal_leap_date(struct leap_date lhs, struct leap_date rhs) {
-  return lhs.year == rhs.year && lhs.month == rhs.month && lhs.day == rhs.day;
-}
-
 int leap_from_test(int argc, char **argv) {
   (void)argc;
   (void)argv;

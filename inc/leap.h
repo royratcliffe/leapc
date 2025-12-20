@@ -86,6 +86,27 @@ struct leap_off {
 };
 
 /*!
+ * \brief Compares two leap_off structures for equality.
+ * \details Checks if two leap_off structures represent the same offset by
+ * comparing their year and day offset fields.
+ * \param lhs The first leap_off structure.
+ * \param rhs The second leap_off structure.
+ * \retval true if both structures represent the same offset.
+ * \retval false otherwise.
+ * \note C cannot directly compare structures; the compiler reports "invalid
+ * operands to binary expression" errors. For example, the following code
+ * \code
+ * (struct leap_off){2020, 59} == leap_off(2020, 59)
+ * \endcode
+ * produces such an error.
+ * So, provide a helper function to compare two leap_off structures.
+ * Compile-time inlining should eliminate any performance penalty.
+ */
+static inline bool equal_leap_off(struct leap_off lhs, struct leap_off rhs) {
+  return lhs.year == rhs.year && lhs.day == rhs.day;
+}
+
+/*!
  * \brief Offsets year and day of year.
  * \details Year and day of year from year and day of year. Adjust the day so
  * that it sits in-between 0 and 365 or 366, inclusively.
@@ -150,6 +171,19 @@ struct leap_date {
    */
   int day;
 };
+
+/*!
+ * \brief Compares two leap_date structures for equality.
+ * \details Checks if two leap_date structures represent the same date by
+ * comparing their year, month, and day fields.
+ * \param lhs The first leap_date structure.
+ * \param rhs The second leap_date structure.
+ * \retval true if both structures represent the same date.
+ * \retval false otherwise.
+ */
+static inline bool equal_leap_date(struct leap_date lhs, struct leap_date rhs) {
+  return lhs.year == rhs.year && lhs.month == rhs.month && lhs.day == rhs.day;
+}
 
 /*!
  * \brief Date from year and day of year.
