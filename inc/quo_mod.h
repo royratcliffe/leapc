@@ -36,8 +36,8 @@ struct quo_mod {
  * the numerator and applies an integer division in order to compute the
  * quotient.
  *
- * The following proves true: the numerator matches the denominator multiplied
- * by the quotient plus the modulus.
+ * The following invariant proves true: the numerator matches the denominator
+ * multiplied by the quotient plus the modulus.
  * \code
  * struct quo_mod qm = quo_mod(x, y);
  * x == (y * qm.quo + qm.mod);
