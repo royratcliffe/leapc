@@ -149,9 +149,13 @@ struct leap_date {
  */
 struct leap_date leap_date(int year, int day);
 
-static inline struct leap_date leap_date_from_off(struct leap_off off) {
-  return leap_date(off.year, off.day);
-}
+/*!
+ * \brief Date from leap offset.
+ * \details Converts a leap_off structure to a leap_date structure.
+ * \param off The leap_off structure containing year and day of year.
+ * \return The corresponding leap_date structure.
+ */
+struct leap_date leap_date_from_off(struct leap_off off);
 
 struct leap_off leap_from(int year, int month, int day);
 
