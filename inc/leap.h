@@ -138,7 +138,7 @@ struct leap_off leap_off(int year, int day_off);
  * \details Returns the number of days in the month for the given year and
  * month. Accounts for leap years in February.
  * \param year The year.
- * \param month The month, starting from 1 for January.
+ * \param month The month ordinal, starting from 1 for January.
  * \retval The number of days in the month, accounting for leap years in
  * February.
  */
@@ -150,7 +150,7 @@ int leap_mday(int year, int month);
  * the year is calculated by summing the days in the months up to the given
  * month, and adding an extra day if the month is after February in a leap year.
  * \param year The year.
- * \param month The month, starting from 1 for January.
+ * \param month The month ordinal, starting from 1 for January.
  * \retval The day of the year, starting from 0 for first of January.
  */
 int leap_yday(int year, int month);
@@ -167,10 +167,16 @@ struct leap_date {
   int year;
   /*!
    * \brief Month of year starting from 1 for January.
+   * \details The month is one-based, starting from 1 for January through 12 for
+   * December. The month is therefore an ordinal value in the range 1 to 12
+   * inclusive, not a cardinal value starting from 0.
    */
   int month;
   /*!
    * \brief Day of month starting from 1 for the first day of the month.
+   * \details The day of the month is one-based, starting from 1 for the first
+   * day of the month through to 28, 29, 30, or 31 depending on the month and leap
+   * year status.
    */
   int day;
 };
