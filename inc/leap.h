@@ -71,10 +71,18 @@ int leap_day(int year);
 
 /*!
  * \brief Leap offset by year and day.
+ * \details Represents a (year, day-of-year) pair where day-of-year is
+ * guaranteed to be within the bounds of the year: 0 <= day < 365 or 366.
  */
 struct leap_off {
-  int year; /*!< Year offset. */
-  int day;  /*!< Day of year offset. */
+  /*!
+   * \brief Year offset.
+   */
+  int year;
+  /*!
+   * \brief Day of year offset.
+   */
+  int day;
 };
 
 /*!
