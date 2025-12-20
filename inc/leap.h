@@ -245,7 +245,7 @@ static inline struct leap_off leap_from_date(struct leap_date date) {
  * \brief Absolute date from day of year.
  * \details Returns the absolute date from the given day of year, starting from
  * 0 for the first day of the year. The absolute date is calculated as the
- * number of days since the epoch (January 1, 1970).
+ * number of days since the epoch (e.g. Unix epoch starting at January 1, 1970).
  * \param day_off The day of the year offset, starting from 0 for the first day
  * of the year.
  * \returns The absolute date as the number of days since the epoch.
@@ -256,7 +256,7 @@ struct leap_date leap_abs_date(int day_off);
  * \brief Absolute date from year, month, and day of month.
  * \details Returns the absolute date from the given year, month, and day of
  * month. The absolute date is calculated as the number of days since the epoch
- * (January 1, 1970).
+ * (e.g. Unix epoch starting at January 1, 1970).
  * \param year The year.
  * \param month The month, starting from 1 for January.
  * \param day Day of the month, starting from 1 for the first day of the month.
