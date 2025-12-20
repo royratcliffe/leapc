@@ -71,11 +71,40 @@ int leap_day(int year);
 
 /*!
  * \brief Leap offset by year and day.
+ * \details Represents a (year, day-of-year) pair where day-of-year is
+ * guaranteed to be within the bounds of the year: 0 <= day < 365 or 366.
  */
 struct leap_off {
-  int year; /*!< Year offset. */
-  int day;  /*!< Day of year offset. */
+  /*!
+   * \brief Year offset.
+   */
+  int year;
+  /*!
+   * \brief Day of year offset.
+   */
+  int day;
 };
+
+/*!
+ * \brief Compares two leap_off structures for equality.
+ * \details Checks if two leap_off structures represent the same offset by
+ * comparing their year and day offset fields.
+ * \param lhs The first leap_off structure.
+ * \param rhs The second leap_off structure.
+ * \retval true if both structures represent the same offset.
+ * \retval false otherwise.
+ * \note C cannot directly compare structures; the compiler reports "invalid
+ * operands to binary expression" errors. For example, the following code
+ * \code
+ * (struct leap_off){2020, 59} == leap_off(2020, 59)
+ * \endcode
+ * produces such an error.
+ * So, provide a helper function to compare two leap_off structures.
+ * Compile-time inlining should eliminate any performance penalty.
+ */
+static inline bool equal_leap_off(struct leap_off lhs, struct leap_off rhs) {
+  return lhs.year == rhs.year && lhs.day == rhs.day;
+}
 
 /*!
  * \brief Offsets year and day of year.
@@ -93,13 +122,13 @@ struct leap_off {
  * days in the year, which can be either 365 or 366 depending on whether it is a
  * leap year.
  * \param year The year.
- * \param day The day of the year, starting from 0.
+ * \param day_off The day of the year offset, starting from 0.
  * \retval leap_off.year The year adjusted to account for the number of days in
  * the year.
  * \retval leap_off.day The adjusted day of the year, starting from 0 for the
  * first day.
  */
-struct leap_off leap_off(int year, int day);
+struct leap_off leap_off(int year, int day_off);
 
 /*!
  * \brief Day of month from year and month.
@@ -129,10 +158,32 @@ int leap_yday(int year, int month);
  * accounting for leap years.
  */
 struct leap_date {
-  int year;  /*!< Year. */
-  int month; /*!< Month of year starting from 1 for January. */
-  int day;   /*!< Day of month starting from 1 for the first day of the month. */
+  /*!
+   * \brief Year.
+   */
+  int year;
+  /*!
+   * \brief Month of year starting from 1 for January.
+   */
+  int month;
+  /*!
+   * \brief Day of month starting from 1 for the first day of the month.
+   */
+  int day;
 };
+
+/*!
+ * \brief Compares two leap_date structures for equality.
+ * \details Checks if two leap_date structures represent the same date by
+ * comparing their year, month, and day fields.
+ * \param lhs The first leap_date structure.
+ * \param rhs The second leap_date structure.
+ * \retval true if both structures represent the same date.
+ * \retval false otherwise.
+ */
+static inline bool equal_leap_date(struct leap_date lhs, struct leap_date rhs) {
+  return lhs.year == rhs.year && lhs.month == rhs.month && lhs.day == rhs.day;
+}
 
 /*!
  * \brief Date from year and day of year.
@@ -141,13 +192,13 @@ struct leap_date {
  * year. The day of the month is adjusted to be 1-based, meaning it starts from 1
  * for the first day of the month.
  * \param year The year.
- * \param day The day of the year, starting from 0 for first of January.
+ * \param day_off Day of the year offset, starting from 0 for first of January.
  * \retval leap_date.year The year.
  * \retval leap_date.month The month, starting from 1 for January.
  * \retval leap_date.day The day of the month, starting from 1 for the first day
  * of the month.
  */
-struct leap_date leap_date(int year, int day);
+struct leap_date leap_date(int year, int day_off);
 
 /*!
  * \brief Date from leap offset.
@@ -169,5 +220,37 @@ struct leap_date leap_date_from_off(struct leap_off off);
  * \returns The absolute date as the number of days since the epoch.
  */
 struct leap_off leap_from(int year, int month, int day);
+
+/*!
+ * \brief Day from leap date.
+ * \details Converts a leap_date structure to a leap_off structure.
+ * \param date The leap_date structure containing year, month, and day of month.
+ * \returns The corresponding leap_off structure. The absolute date as the
+ * number of days since the epoch.
+ */
+struct leap_off leap_from_date(struct leap_date date);
+
+/*!
+ * \brief Absolute date from day of year.
+ * \details Returns the absolute date from the given day of year, starting from
+ * 0 for the first day of the year. The absolute date is calculated as the
+ * number of days since the epoch (January 1, 1970).
+ * \param day_off The day of the year offset, starting from 0 for the first day
+ * of the year.
+ * \returns The absolute date as the number of days since the epoch.
+ */
+struct leap_date leap_absdate(int day_off);
+
+/*!
+ * \brief Absolute date from year, month, and day of month.
+ * \details Returns the absolute date from the given year, month, and day of
+ * month. The absolute date is calculated as the number of days since the epoch
+ * (January 1, 1970).
+ * \param year The year.
+ * \param month The month, starting from 1 for January.
+ * \param day Day of the month, starting from 1 for the first day of the month.
+ * \returns The absolute date as the number of days since the epoch.
+ */
+int leap_absfrom(int year, int month, int day);
 
 #endif /* __LEAP_H__ */

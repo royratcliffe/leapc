@@ -67,14 +67,14 @@ int leap_day(int year) { return year * 365 + leap_thru(year - 1) + 1; }
  *  - Differences of `leap_day(...)` cancel the constant epoch offset, ensuring
  *    exact rebasing regardless of the `+1` anchor in `leap_day`.
  */
-struct leap_off leap_off(int year, int day) {
+struct leap_off leap_off(int year, int day_off) {
   int days = 365 + leap_add(year);
-  while (day < 0 || day >= days) {
-    int year0 = year + quo_mod(day, days).quo;
-    day += leap_day(year) - leap_day(year0);
+  while (day_off < 0 || day_off >= days) {
+    int year0 = year + quo_mod(day_off, days).quo;
+    day_off += leap_day(year) - leap_day(year0);
     days = 365 + leap_add(year = year0);
   }
-  return (struct leap_off){.year = year, .day = day};
+  return (struct leap_off){.year = year, .day = day_off};
 }
 
 int leap_mday(int year, int month) {
@@ -101,8 +101,8 @@ int leap_yday(int year, int month) {
  *  - The current month is the target month, and day + 1 is the target day of
  *    month (to convert from 0-based to 1-based).
  */
-struct leap_date leap_date(int year, int day) {
-  struct leap_off off = leap_off(year, day);
+struct leap_date leap_date(int year, int day_off) {
+  struct leap_off off = leap_off(year, day_off);
   int month = 1;
   for (; month <= 12; ++month) {
     const int mday = leap_mday(off.year, month);
@@ -118,12 +118,19 @@ struct leap_date leap_date(int year, int day) {
   };
 }
 
-struct leap_date leap_date_from_off(struct leap_off off) {
-  return leap_date(off.year, off.day);
-}
+struct leap_date leap_date_from_off(struct leap_off off) { return leap_date(off.year, off.day); }
 
 struct leap_off leap_from(int year, int month, int day) {
   const struct quo_mod qm = quo_mod(month - 1, 12);
   year += qm.quo;
   return leap_off(year, leap_yday(year, qm.mod + 1) + day - 1);
+}
+
+struct leap_off leap_from_date(struct leap_date date) { return leap_from(date.year, date.month, date.day); }
+
+struct leap_date leap_absdate(int day_off) { return leap_date(0, day_off); }
+
+int leap_absfrom(int year, int month, int day) {
+  const struct leap_off off = leap_from(year, month, day);
+  return leap_day(off.year) + off.day;
 }
