@@ -144,7 +144,8 @@ struct leap_date {
  * \param day The day of the year, starting from 0 for first of January.
  * \retval leap_date.year The year.
  * \retval leap_date.month The month, starting from 1 for January.
- * \retval leap_date.day The day of the month, starting from 1 for the first day of the month.
+ * \retval leap_date.day The day of the month, starting from 1 for the first day
+ * of the month.
  */
 struct leap_date leap_date(int year, int day);
 
