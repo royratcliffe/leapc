@@ -137,9 +137,18 @@ int leap_yday(int year, int month);
  * accounting for leap years.
  */
 struct leap_date {
-  int year;  /*!< Year. */
-  int month; /*!< Month of year starting from 1 for January. */
-  int day;   /*!< Day of month starting from 1 for the first day of the month. */
+  /*!
+   * \brief Year.
+   */
+  int year;
+  /*!
+   * \brief Month of year starting from 1 for January.
+   */
+  int month;
+  /*!
+   * \brief Day of month starting from 1 for the first day of the month.
+   */
+  int day;
 };
 
 /*!
