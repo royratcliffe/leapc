@@ -80,13 +80,13 @@ struct leap_off leap_off(int year, int day_off) {
 int leap_mday(int year, int month) {
   static const int MDAY[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
   const struct quo_mod qm = quo_mod(month - 1, 12);
-  return MDAY[qm.mod] + (month == 2 ? leap_add(year + qm.quo) : 0);
+  return MDAY[qm.mod] + (qm.mod == 1 ? leap_add(year + qm.quo) : 0);
 }
 
 int leap_yday(int year, int month) {
   static const int YDAY[] = {0, 31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334};
   const struct quo_mod qm = quo_mod(month - 1, 12);
-  return YDAY[qm.mod] + (month > 2 ? leap_add(year + qm.quo) : 0);
+  return YDAY[qm.mod] + (qm.mod > 1 ? leap_add(year + qm.quo) : 0);
 }
 
 /*
@@ -104,7 +104,15 @@ int leap_yday(int year, int month) {
 struct leap_date leap_date(int year, int day_off) {
   struct leap_off off = leap_off(year, day_off);
   int month = 1;
-  for (; month <= 12; ++month) {
+  /*
+   * Iterate months, subtracting month days from day offset until the day offset
+   * is less than the number of days in the current month.
+   *
+   * Take care not to introduce an off-by-one error in the loop termination
+   * condition. The loop continues while month < 12 because by the time month is
+   * 12, any remaining day offset must belong to December.
+   */
+  for (; month < 12; ++month) {
     const int mday = leap_mday(off.year, month);
     if (off.day < mday) {
       break;
