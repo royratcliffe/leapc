@@ -122,11 +122,14 @@ static inline bool equal_leap_off(struct leap_off lhs, struct leap_off rhs) {
  * days in the year, which can be either 365 or 366 depending on whether it is a
  * leap year.
  * \param year The year.
- * \param day_off The day of the year offset, starting from 0.
+ * \param day_off The day of the year offset, starting from 0. It can be negative
+ * or exceed the number of days in the year.
  * \retval leap_off.year The year adjusted to account for the number of days in
- * the year.
+ * the year. The resulting year becomes normalised according to the day
+ * adjustment whether positive or negative.
  * \retval leap_off.day The adjusted day of the year, starting from 0 for the
- * first day.
+ * first day. The day is guaranteed to be within the bounds of the year. 0 <=
+ * day < 365 or 366 depending on whether it is a leap year.
  */
 struct leap_off leap_off(int year, int day_off);
 
