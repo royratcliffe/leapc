@@ -128,6 +128,10 @@ struct leap_off leap_from(int year, int month, int day) {
   return leap_off(year, leap_yday(year, qm.mod + 1) + day - 1);
 }
 
+struct leap_off leap_from_date(struct leap_date date) {
+  return leap_from(date.year, date.month, date.day);
+}
+
 struct leap_date leap_absdate(int day) {
   return leap_date(0, day);
 }

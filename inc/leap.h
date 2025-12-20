@@ -187,4 +187,13 @@ struct leap_date leap_date_from_off(struct leap_off off);
  */
 struct leap_off leap_from(int year, int month, int day);
 
+/*!
+ * \brief Day from leap date.
+ * \details Converts a leap_date structure to a leap_off structure.
+ * \param date The leap_date structure containing year, month, and day of month.
+ * \returns The corresponding leap_off structure. The absolute date as the
+ * number of days since the epoch.
+ */
+struct leap_off leap_from_date(struct leap_date date);
+
 #endif /* __LEAP_H__ */
