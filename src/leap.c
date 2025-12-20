@@ -118,9 +118,7 @@ struct leap_date leap_date(int year, int day) {
   };
 }
 
-struct leap_date leap_date_from_off(struct leap_off off) {
-  return leap_date(off.year, off.day);
-}
+struct leap_date leap_date_from_off(struct leap_off off) { return leap_date(off.year, off.day); }
 
 struct leap_off leap_from(int year, int month, int day) {
   const struct quo_mod qm = quo_mod(month - 1, 12);
@@ -128,13 +126,9 @@ struct leap_off leap_from(int year, int month, int day) {
   return leap_off(year, leap_yday(year, qm.mod + 1) + day - 1);
 }
 
-struct leap_off leap_from_date(struct leap_date date) {
-  return leap_from(date.year, date.month, date.day);
-}
+struct leap_off leap_from_date(struct leap_date date) { return leap_from(date.year, date.month, date.day); }
 
-struct leap_date leap_absdate(int day) {
-  return leap_date(0, day);
-}
+struct leap_date leap_absdate(int day) { return leap_date(0, day); }
 
 int leap_absfrom(int year, int month, int day) {
   const struct leap_off off = leap_from(year, month, day);
