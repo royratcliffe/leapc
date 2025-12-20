@@ -3,11 +3,11 @@
 #include <assert.h>
 #include <stdlib.h>
 
-int leap_absfrom_test(int argc, char **argv) {
+int leap_abs_from_test(int argc, char **argv) {
   (void)argc;
   (void)argv;
 
-  assert(0 == leap_absfrom(0, 1, 1));
+  assert(0 == leap_abs_from(0, 1, 1));
 
   return EXIT_SUCCESS;
 }
