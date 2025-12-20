@@ -101,13 +101,13 @@ struct leap_off {
  * days in the year, which can be either 365 or 366 depending on whether it is a
  * leap year.
  * \param year The year.
- * \param day The day of the year, starting from 0.
+ * \param day_off The day of the year offset, starting from 0.
  * \retval leap_off.year The year adjusted to account for the number of days in
  * the year.
  * \retval leap_off.day The adjusted day of the year, starting from 0 for the
  * first day.
  */
-struct leap_off leap_off(int year, int day);
+struct leap_off leap_off(int year, int day_off);
 
 /*!
  * \brief Day of month from year and month.
@@ -158,13 +158,13 @@ struct leap_date {
  * year. The day of the month is adjusted to be 1-based, meaning it starts from 1
  * for the first day of the month.
  * \param year The year.
- * \param day The day of the year, starting from 0 for first of January.
+ * \param day_off Day of the year offset, starting from 0 for first of January.
  * \retval leap_date.year The year.
  * \retval leap_date.month The month, starting from 1 for January.
  * \retval leap_date.day The day of the month, starting from 1 for the first day
  * of the month.
  */
-struct leap_date leap_date(int year, int day);
+struct leap_date leap_date(int year, int day_off);
 
 /*!
  * \brief Date from leap offset.
@@ -201,10 +201,11 @@ struct leap_off leap_from_date(struct leap_date date);
  * \details Returns the absolute date from the given day of year, starting from
  * 0 for the first day of the year. The absolute date is calculated as the
  * number of days since the epoch (January 1, 1970).
- * \param day The day of the year, starting from 0 for the first day of the year.
+ * \param day_off The day of the year offset, starting from 0 for the first day
+ * of the year.
  * \returns The absolute date as the number of days since the epoch.
  */
-struct leap_date leap_absdate(int day);
+struct leap_date leap_absdate(int day_off);
 
 /*!
  * \brief Absolute date from year, month, and day of month.
