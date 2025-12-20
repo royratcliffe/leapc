@@ -255,4 +255,12 @@ struct leap_date leap_abs_date(int day_off);
  */
 int leap_abs_from(int year, int month, int day);
 
+/*!
+ * \brief Absolute date from leap_date structure.
+ * \details Returns the absolute date from the given leap_date structure.
+ * \param date The leap_date structure.
+ * \returns The absolute date as the number of days since the epoch.
+ */
+static inline int leap_abs_from_date(struct leap_date date) { return leap_abs_from(date.year, date.month, date.day); }
+
 #endif /* __LEAP_H__ */
