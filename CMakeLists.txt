@@ -15,13 +15,13 @@ foreach (test_to_run ${TestsToRun})
         continue ()
     endif ()
     list (APPEND TestNames ${TestName})
-    add_test (NAME ${TestName} COMMAND RunTests ${TestName})
+    add_test (NAME ${TestName} COMMAND TestDriverForLeapC ${TestName})
 endforeach ()
 create_test_sourcelist (Tests test_driver.c ${TestNames})
 
-add_executable (RunTests)
-target_sources (RunTests PRIVATE test_driver.c ${TestsToRun})
-target_link_libraries (RunTests PRIVATE leapc)
+add_executable (TestDriverForLeapC)
+target_sources (TestDriverForLeapC PRIVATE test_driver.c ${TestsToRun})
+target_link_libraries (TestDriverForLeapC PRIVATE leapc)
 
 # Link the math library on GNU or Clang compilers. This is needed for math
 # functions like `floor`. The GNU and Clang compilers do not auto-link the math
