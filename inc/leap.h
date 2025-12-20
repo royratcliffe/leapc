@@ -196,4 +196,26 @@ struct leap_off leap_from(int year, int month, int day);
  */
 struct leap_off leap_from_date(struct leap_date date);
 
+/*!
+ * \brief Absolute date from day of year.
+ * \details Returns the absolute date from the given day of year, starting from
+ * 0 for the first day of the year. The absolute date is calculated as the
+ * number of days since the epoch (January 1, 1970).
+ * \param day The day of the year, starting from 0 for the first day of the year.
+ * \returns The absolute date as the number of days since the epoch.
+ */
+struct leap_date leap_absdate(int day);
+
+/*!
+ * \brief Absolute date from year, month, and day of month.
+ * \details Returns the absolute date from the given year, month, and day of
+ * month. The absolute date is calculated as the number of days since the epoch
+ * (January 1, 1970).
+ * \param year The year.
+ * \param month The month, starting from 1 for January.
+ * \param day The day of the month, starting from 1 for the first day of the month.
+ * \returns The absolute date as the number of days since the epoch.
+ */
+int leap_absfrom(int year, int month, int day);
+
 #endif /* __LEAP_H__ */
