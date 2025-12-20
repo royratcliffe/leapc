@@ -6,6 +6,7 @@
  * years up to a given year, and calculate leap-adjusted days.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
+
 #ifndef __LEAP_H__
 #define __LEAP_H__
 
@@ -143,8 +144,30 @@ struct leap_date {
  * \param day The day of the year, starting from 0 for first of January.
  * \retval leap_date.year The year.
  * \retval leap_date.month The month, starting from 1 for January.
- * \retval leap_date.day The day of the month, starting from 1 for the first day of the month.
+ * \retval leap_date.day The day of the month, starting from 1 for the first day
+ * of the month.
  */
 struct leap_date leap_date(int year, int day);
+
+/*!
+ * \brief Date from leap offset.
+ * \details Converts a leap_off structure to a leap_date structure.
+ * \param off The leap_off structure containing year and day of year.
+ * \return The corresponding leap_date structure.
+ */
+struct leap_date leap_date_from_off(struct leap_off off);
+
+/*!
+ * \brief Day from year, month and day of month.
+ * \details Adjusts the month so that it sits in-between 1 and 12 inclusively.
+ * The month offsets the year. Returns the absolute date from the given year,
+ * month, and day of month.
+ * \param year The year.
+ * \param month The month, starting from 1 for January.
+ * \param day The one-based day of the month, starting from 1 for the first day
+ * of the month.
+ * \returns The absolute date as the number of days since the epoch.
+ */
+struct leap_off leap_from(int year, int month, int day);
 
 #endif /* __LEAP_H__ */
