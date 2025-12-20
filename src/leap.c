@@ -6,6 +6,7 @@
  * leap years up to a given year, and calculate leap-adjusted days.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
+
 #include "leap.h"
 #include "quo_mod.h"
 
