@@ -137,6 +137,6 @@ struct leap_date leap_absdate(int day) {
 }
 
 int leap_absfrom(int year, int month, int day) {
-  struct leap_off off = leap_from(year, month, day);
+  const struct leap_off off = leap_from(year, month, day);
   return leap_day(off.year) + off.day;
 }
