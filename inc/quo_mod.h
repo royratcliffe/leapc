@@ -5,15 +5,29 @@
  * \details Header file for quotient and modulus function implementations.
  * \copyright 2025, Roy Ratcliffe, Northumberland, United Kingdom
  */
+
 #ifndef __QUO_MOD_H__
 #define __QUO_MOD_H__
 
 /*!
  * \brief Quotient and remainder in integer space.
+ * \details Structure encapsulating the integer quotient and modulus.
+ * The structure is returned by the \c quo_mod() function.
+ *
+ * This structure mirrors the standard C \c div_t structure returned by the
+ * \c div() function, but uses different member names.
+ *
+ * \see quo_mod()
  */
 struct quo_mod {
-  int quo; /*!< Integer quotient. */
-  int mod; /*!< Integer modulus. */
+  /*!
+   * \brief Integer quotient.
+   */
+  int quo;
+  /*!
+   * \brief Integer modulus.
+   */
+  int mod;
 };
 
 /*!
