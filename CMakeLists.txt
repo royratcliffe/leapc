@@ -33,7 +33,7 @@ target_link_libraries (TestDriverForLeapC PRIVATE leapc)
 # Windows (WIN32) because it is not needed there.
 message (STATUS "CMAKE_C_COMPILER_ID: ${CMAKE_C_COMPILER_ID}")
 if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang" AND NOT WIN32)
-    target_link_libraries (RunTests PRIVATE m)
+    target_link_libraries (TestDriverForLeapC PRIVATE m)
 endif ()
 
 # Find the Doxygen output at html/index.html in the build folder.
