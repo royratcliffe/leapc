@@ -1,0 +1,9 @@
+<map id="src/leap.c" name="src/leap.c">
+<area shape="rect" id="Node000001" title="Leap year function implementations." alt="" coords="55,5,139,31"/>
+<area shape="rect" id="Node000002" href="$leap_8h.html" title="Leap year function prototypes." alt="" coords="15,79,78,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="91,33,65,69,61,66,87,29"/>
+<area shape="rect" id="Node000004" href="$quo__mod_8h.html" title="Quotient and modulus prototypes." alt="" coords="102,79,197,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="108,29,135,66,131,69,104,33"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,152,88,177"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="49,104,49,138,44,138,44,104"/>
+</map>

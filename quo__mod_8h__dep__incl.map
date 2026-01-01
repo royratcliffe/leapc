@@ -1,0 +1,9 @@
+<map id="inc/quo_mod.h" name="inc/quo_mod.h">
+<area shape="rect" id="Node000001" title="Quotient and modulus prototypes." alt="" coords="113,5,230,31"/>
+<area shape="rect" id="Node000002" href="$leap_8c.html" title="Leap year function implementations." alt="" coords="5,79,89,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="141,40,69,81,66,76,138,35"/>
+<area shape="rect" id="Node000003" href="$quo__mod_8c.html" title="Quotient and modulo function implementations." alt="" coords="113,79,229,104"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="174,44,174,79,169,79,169,44"/>
+<area shape="rect" id="Node000004" href="$quo__mod__test_8c_source.html" title=" " alt="" coords="253,79,415,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="211,34,308,76,306,81,209,39"/>
+</map>

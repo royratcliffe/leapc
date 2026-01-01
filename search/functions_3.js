@@ -1,0 +1,16 @@
+var searchData=
+[
+  ['leap_5fabs_5fdate_0',['leap_abs_date',['../leap_8c.html#accd3949071bc850b49d50e4b11702b56',1,'leap_abs_date(int day_off):&#160;leap.c'],['../leap_8h.html#accd3949071bc850b49d50e4b11702b56',1,'leap_abs_date(int day_off):&#160;leap.c']]],
+  ['leap_5fabs_5ffrom_1',['leap_abs_from',['../leap_8h.html#af9bd75ab11117dd87a0bb4cfa36812eb',1,'leap_abs_from(int year, int month, int day):&#160;leap.c'],['../leap_8c.html#af9bd75ab11117dd87a0bb4cfa36812eb',1,'leap_abs_from(int year, int month, int day):&#160;leap.c']]],
+  ['leap_5fabs_5ffrom_5fdate_2',['leap_abs_from_date',['../leap_8h.html#a25b20ed9e561091bc166e0ed29125299',1,'leap.h']]],
+  ['leap_5fadd_3',['leap_add',['../leap_8h.html#adc35a7cfe1e01d9fa2d71aa9dcd8fdd9',1,'leap_add(int year):&#160;leap.c'],['../leap_8c.html#adc35a7cfe1e01d9fa2d71aa9dcd8fdd9',1,'leap_add(int year):&#160;leap.c']]],
+  ['leap_5fdate_4',['leap_date',['../leap_8h.html#a704a91098c0752c7380cc7e9aa2d3d10',1,'leap_date(int year, int day_off):&#160;leap.c'],['../leap_8c.html#a704a91098c0752c7380cc7e9aa2d3d10',1,'leap_date(int year, int day_off):&#160;leap.c']]],
+  ['leap_5fdate_5ffrom_5foff_5',['leap_date_from_off',['../leap_8h.html#a52d40d15121fd759f22df038eacfc340',1,'leap.h']]],
+  ['leap_5fday_6',['leap_day',['../leap_8c.html#af525dd5618ca8ad6d155cc2dafcc5b02',1,'leap_day(int year):&#160;leap.c'],['../leap_8h.html#af525dd5618ca8ad6d155cc2dafcc5b02',1,'leap_day(int year):&#160;leap.c']]],
+  ['leap_5ffrom_7',['leap_from',['../leap_8h.html#a1a917cd166874e7f2abd0ea58447397a',1,'leap_from(int year, int month, int day):&#160;leap.c'],['../leap_8c.html#a1a917cd166874e7f2abd0ea58447397a',1,'leap_from(int year, int month, int day):&#160;leap.c']]],
+  ['leap_5ffrom_5fdate_8',['leap_from_date',['../leap_8h.html#a77ce78ae87adfdb0135c27f4f2c45e7b',1,'leap.h']]],
+  ['leap_5fmday_9',['leap_mday',['../leap_8h.html#a5462fa371f5c6160f06b9590e3fe71c4',1,'leap_mday(int year, int month):&#160;leap.c'],['../leap_8c.html#a5462fa371f5c6160f06b9590e3fe71c4',1,'leap_mday(int year, int month):&#160;leap.c']]],
+  ['leap_5foff_10',['leap_off',['../leap_8h.html#aaa3f95737d9178c8116408089e693d24',1,'leap_off(int year, int day_off):&#160;leap.c'],['../leap_8c.html#aaa3f95737d9178c8116408089e693d24',1,'leap_off(int year, int day_off):&#160;leap.c']]],
+  ['leap_5fthru_11',['leap_thru',['../leap_8h.html#a0624e505754fbcf36363ec6e0e90c51f',1,'leap_thru(int year):&#160;leap.c'],['../leap_8c.html#a0624e505754fbcf36363ec6e0e90c51f',1,'leap_thru(int year):&#160;leap.c']]],
+  ['leap_5fyday_12',['leap_yday',['../leap_8h.html#af5c6cbfa3c41db28de51788f77713acf',1,'leap_yday(int year, int month):&#160;leap.c'],['../leap_8c.html#af5c6cbfa3c41db28de51788f77713acf',1,'leap_yday(int year, int month):&#160;leap.c']]]
+];
