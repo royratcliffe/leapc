@@ -37,7 +37,7 @@ if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang" AND NOT WIN32)
 endif ()
 
 # Find the Doxygen output at html/index.html in the build folder.
-# Optimise for C: data structures not classes!
+# Optimise for C language: data structures not classes!
 find_package (Doxygen OPTIONAL_COMPONENTS dot mscgen dia)
 if (DOXYGEN_FOUND)
     set (DOXYGEN_OPTIMIZE_OUTPUT_FOR_C YES)
