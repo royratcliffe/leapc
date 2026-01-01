@@ -37,12 +37,17 @@ if (CMAKE_C_COMPILER_ID MATCHES "GNU|Clang" AND NOT WIN32)
 endif ()
 
 # Find the Doxygen output at html/index.html in the build folder.
-# Optimise for C: data structures not classes!
+# Optimise for C language: data structures not classes!
 find_package (Doxygen OPTIONAL_COMPONENTS dot mscgen dia)
 if (DOXYGEN_FOUND)
-set (DOXYGEN_OPTIMIZE_OUTPUT_FOR_C YES)
-set (DOXYGEN_EXTRACT_STATIC YES)
-set (DOXYGEN_SOURCE_BROWSER YES)
-set (DOXYGEN_EXCLUDE ${PROJECT_BINARY_DIR}/test_driver.c)
-doxygen_add_docs (Doxygen ${PROJECT_SOURCE_DIR})
+    set (DOXYGEN_USE_MATHJAX YES)
+    set (DOXYGEN_USE_MDFILE_AS_MAINPAGE README.md)
+    set (DOXYGEN_OPTIMIZE_OUTPUT_FOR_C YES)
+    set (DOXYGEN_EXTRACT_STATIC YES)
+    set (DOXYGEN_SOURCE_BROWSER YES)
+    set (DOXYGEN_EXCLUDE ${CMAKE_BINARY_DIR}/test_driver.c)
+    doxygen_add_docs (Doxygen ${CMAKE_SOURCE_DIR}
+        COMMENT "Generating API documentation with Doxygen"
+        ALL
+    )
 endif ()

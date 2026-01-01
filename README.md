@@ -24,7 +24,7 @@ suitable for embedded systems.
 
 In basic C, the `is_leap` function answers `true` or `false`:
 
-``` c
+```c
 #include <stdbool.h>
 
 /*!
@@ -78,7 +78,7 @@ integer quotient of its two arguments.
 
 The $f_{quo}(x, y)$ function amounts to, in C:
 
-``` c
+```c
 /*!
  * \brief Quotient and remainder in integer space.
  * \details Structure encapsulating the integer quotient and modulus.
@@ -188,7 +188,7 @@ $$
 The “leap years through some year” function in C amounts to a simple sum
 of quotients.
 
-``` c
+```c
 /*!
  * \brief Leap years completed from year 0 up to but not including the first day
  * of the specified year.
@@ -217,7 +217,7 @@ The implementation expands the quotient terms for clarity; they make
 debugging easier since each term appears separately in the debugger. The
 following unit tests verify the implementation.
 
-``` c
+```c
 #include "leap.h"
 
 #include <assert.h>
@@ -247,7 +247,7 @@ Apply the leap-through adjustment for all the preceding years. The
 result is the number of epoch days starting at year $0$ and ending at
 the given $year$.
 
-``` c
+```c
 /*!
  * \brief Counts leap-adjusted days up to some year.
  * \details Counts the number of days completed up to but not including the
@@ -297,7 +297,7 @@ Notes:
 - Differences of `leap_day(year)` cancel the constant epoch offset,
   ensuring exact rebasing regardless of the $+1$ anchor in `leap_day`.
 
-``` c
+```c
 /*!
  * \brief Leap offset by year and day.
  * \details Represents a (year, day-of-year) pair where day-of-year is
@@ -363,7 +363,7 @@ into year-and-day pairs that embedded applications can use for date
 calculations. Relative leap-year computations become straightforward, as
 in the following example.
 
-``` c
+```c
   /*
    * Negative day offset that normalises to the previous year.
    * Year 5 offset -1 day normalises to year 4 day 365 (leap year).
@@ -378,7 +378,7 @@ in the month or the days of the year for that month becomes
 straightforward, and a date (year, month ordinal, day of month ordinal)
 from a year-day offset conversion falls out.
 
-``` c
+```c
 /*!
  * \brief Day of month from year and month.
  * \details Returns the number of days in the month for the given year and
@@ -424,7 +424,7 @@ a (year, month ordinal, day-of-month ordinal) triple.
 - The current month is the target month, and day + 1 is the target day
   of the month (to convert from 0-based to 1-based).
 
-``` c
+```c
 /*!
  * \brief Leap year date structure.
  * \details Represents a date in terms of year, month, and day of month,
@@ -484,7 +484,7 @@ static inline struct leap_date leap_date(int year, int day_off) {
 
 We can now translate year-day pairs to year-month-day triples.
 
-``` c
+```c
   /*
    * Three hundred and sixty five days from midnight on 1900-01-01 is 1900-12-31
    * since 1900 is not a leap year.
