@@ -40,6 +40,7 @@ endif ()
 # Optimise for C language: data structures not classes!
 find_package (Doxygen OPTIONAL_COMPONENTS dot mscgen dia)
 if (DOXYGEN_FOUND)
+    set (DOXYGEN_USE_MDFILE_AS_MAINPAGE README.md)
     set (DOXYGEN_OPTIMIZE_OUTPUT_FOR_C YES)
     set (DOXYGEN_EXTRACT_STATIC YES)
     set (DOXYGEN_SOURCE_BROWSER YES)
