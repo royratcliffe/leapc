@@ -8,6 +8,7 @@ var dir_59425e443f801f1f2fd8bbe4959a3ccf =
     [ "leap_date_test.c", "leap__date__test_8c_source.html", null ],
     [ "leap_day_test.c", "leap__day__test_8c_source.html", null ],
     [ "leap_from_test.c", "leap__from__test_8c_source.html", null ],
+    [ "leap_helpers_test.c", "leap__helpers__test_8c_source.html", null ],
     [ "leap_off_test.c", "leap__off__test_8c_source.html", null ],
     [ "leap_thru_test.c", "leap__thru__test_8c_source.html", null ],
     [ "quo_mod_test.c", "quo__mod__test_8c_source.html", null ]
