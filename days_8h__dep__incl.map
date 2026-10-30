@@ -1,7 +1,7 @@
 <map id="tests/days.h" name="tests/days.h">
-<area shape="rect" id="Node000001" title="Function prototypes for making days from standard time and computing day differences." alt="" coords="81,5,182,31"/>
-<area shape="rect" id="Node000002" href="$days_8c_source.html" title=" " alt="" coords="5,79,105,104"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="111,42,70,80,66,76,107,38"/>
-<area shape="rect" id="Node000003" href="$leap__day__test_8c_source.html" title=" " alt="" coords="129,79,289,104"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="156,38,198,76,194,80,152,42"/>
+<area shape="rect" id="Node000001" title="Function prototypes for making days from standard time and computing day differences." alt="" coords="81,5,181,33"/>
+<area shape="rect" id="Node000002" href="$days_8c_source.html" title=" " alt="" coords="5,81,105,109"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="109,43,70,83,67,79,104,44"/>
+<area shape="rect" id="Node000003" href="$leap__day__test_8c_source.html" title=" " alt="" coords="129,81,288,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="157,41,197,81,192,81,155,46"/>
 </map>
