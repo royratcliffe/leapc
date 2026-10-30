@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "clang-format: format project",
+      "type": "process",
+      "command": "cmake",
+      "args": [
+        "-P",
+        "${workspaceFolder}/.vscode/format.cmake"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "coverage: report",
+      "detail": "Requires Clang, LLVM coverage tools, and Ninja on PATH. Runs all tests and writes build/coverage/html/index.html.",
+      "type": "process",
+      "command": "cmake",
+      "args": [
+        "-P",
+        "${workspaceFolder}/.vscode/coverage.cmake"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ]
+}

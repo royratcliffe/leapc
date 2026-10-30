@@ -102,9 +102,9 @@ struct quo_mod {
 
 /*!
  * \brief Compute the integer quotient and modulus.
- * \details Performs an integer modulo operation. Then subtracts the modulus from
- * the numerator and applies an integer division in order to compute the
- * quotient.
+ * \details Starts with C's quotient and remainder. If the nonzero remainder
+ * has a different sign from the denominator, adds the denominator to the
+ * remainder and decrements the quotient.
  *
  * The following invariant proves true: the numerator matches the denominator
  * multiplied by the quotient plus the modulus.
@@ -120,16 +120,18 @@ struct quo_mod {
  * non-positive when the denominator is negative.
  * \note The \c quo_mod identifier exists in structure namespace as well as
  * function namespace.
- * \warning Throws a division-by-zero error if the denominator \c y is zero.
+ * \warning The denominator \c y must not be zero, and the quotient must be
+ * representable as an \c int (so \c INT_MIN / -1 is undefined).
  */
 static inline struct quo_mod quo_mod(int x, int y) {
   /*
    * Compute modulus using C's % operator. Note that C's % operator will yield
    * negative results when the numerator is negative.
    */
+  int quo = x / y;
   int mod = x % y;
 
-  /* Adjust negative modulus to be positive. Ensures that:
+  /* Adjust the remainder to have the denominator's sign. Ensures that:
    *
    *    0 <= mod < y    when y > 0
    *    y < mod <= 0    when y < 0
@@ -138,20 +140,18 @@ static inline struct quo_mod quo_mod(int x, int y) {
    */
   if (mod != 0 && (mod ^ y) < 0) {
     mod += y;
+    quo--;
   }
 
-  /*
-   * Returns a quo_mod structure by casting an initialiser. Is this portable?
-   */
-  return (struct quo_mod){.quo = (x - mod) / y, .mod = mod};
+  return (struct quo_mod){.quo = quo, .mod = mod};
 }
 ```
 
-The implementation tracks Lua’s module operator. The sign differs. In C,
-the sign of the modulus follows the sign of the numerator, but for Lua,
-it follows the sign of the divisor. The C implementation needs a small
-correction; add the divisor if the signs differ between the modulus and
-the divisor.
+This function follows Lua's modulo convention: the remainder has the
+denominator's sign (or is zero). C's remainder operator instead gives a
+nonzero remainder the numerator's sign. When those signs differ, add the
+denominator to the remainder and decrement the quotient to preserve the
+identity $x = yq + m$.
 
 $$
 \begin{aligned}
@@ -160,7 +160,7 @@ m &= \begin{cases}
 m' + y & \text{if } m' \neq 0 \text{ and } \text{sgn}(m') \neq \text{sgn}(y) \\
 m' & \text{otherwise}
 \end{cases} \\
-q &= \frac{x - m}{y}
+q &= \left\lfloor \frac{x}{y} \right\rfloor
 \end{aligned}
 $$
 
