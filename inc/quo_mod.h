@@ -50,7 +50,8 @@ struct quo_mod {
  * non-positive when the denominator is negative.
  * \note The \c quo_mod identifier exists in structure namespace as well as
  * function namespace.
- * \warning Throws a division-by-zero error if the denominator \c y is zero.
+ * \warning The denominator \c y must not be zero, and the quotient must be
+ * representable as an \c int (so \c INT_MIN / -1 is undefined).
  */
 struct quo_mod quo_mod(int x, int y);
 

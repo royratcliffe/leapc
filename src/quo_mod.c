@@ -14,6 +14,7 @@ struct quo_mod quo_mod(int x, int y) {
    * Compute modulus using C's % operator. Note that C's % operator will yield
    * negative results when the numerator is negative.
    */
+  int quo = x / y;
   int mod = x % y;
 
   /* Adjust negative modulus to be positive. Ensures that:
@@ -25,10 +26,8 @@ struct quo_mod quo_mod(int x, int y) {
    */
   if (mod != 0 && (mod ^ y) < 0) {
     mod += y;
+    quo--;
   }
 
-  /*
-   * Returns a quo_mod structure by casting an initialiser. Is this portable?
-   */
-  return (struct quo_mod){.quo = (x - mod) / y, .mod = mod};
+  return (struct quo_mod){.quo = quo, .mod = mod};
 }
