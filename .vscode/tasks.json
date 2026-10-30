@@ -1,0 +1,18 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "clang-format: format project",
+      "type": "process",
+      "command": "cmake",
+      "args": [
+        "-P",
+        "${workspaceFolder}/.vscode/format.cmake"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": []
+    }
+  ]
+}
