@@ -55,15 +55,12 @@ int quo_mod_test(int argc, char **argv) {
       {-7, -3, 2, -1},
       {6, -3, -2, 0},
       {0, INT_MIN, 0, 0},
-      {INT_MIN, 3, INT_MIN / 3 - (INT_MIN % 3 != 0),
-       INT_MIN % 3 + (INT_MIN % 3 != 0 ? 3 : 0)},
+      {INT_MIN, 3, INT_MIN / 3 - (INT_MIN % 3 != 0), INT_MIN % 3 + (INT_MIN % 3 != 0 ? 3 : 0)},
       {INT_MIN, -3, INT_MIN / -3, INT_MIN % -3},
-      {INT_MAX, -3, INT_MAX / -3 - (INT_MAX % -3 != 0),
-       INT_MAX % -3 - (INT_MAX % -3 != 0 ? 3 : 0)},
+      {INT_MAX, -3, INT_MAX / -3 - (INT_MAX % -3 != 0), INT_MAX % -3 - (INT_MAX % -3 != 0 ? 3 : 0)},
       {INT_MAX, INT_MIN, -1, -1},
       {INT_MIN, INT_MIN, 1, 0},
-      {INT_MIN, INT_MAX,
-       INT_MIN / INT_MAX - (INT_MIN % INT_MAX != 0),
+      {INT_MIN, INT_MAX, INT_MIN / INT_MAX - (INT_MIN % INT_MAX != 0),
        INT_MIN % INT_MAX + (INT_MIN % INT_MAX != 0 ? INT_MAX : 0)},
   };
 
@@ -85,10 +82,8 @@ int quo_mod_test(int argc, char **argv) {
    * denominators and INT_MIN / -1. Compute expected results in long long to avoid
    * overflowing intermediate int arithmetic.
    */
-  for (size_t i = 0; i < sizeof boundary_values / sizeof boundary_values[0];
-       i++)
-    for (size_t j = 0; j < sizeof boundary_values / sizeof boundary_values[0];
-         j++) {
+  for (size_t i = 0; i < sizeof boundary_values / sizeof boundary_values[0]; i++)
+    for (size_t j = 0; j < sizeof boundary_values / sizeof boundary_values[0]; j++) {
       const int x = boundary_values[i];
       const int y = boundary_values[j];
       if (y == 0 || (x == INT_MIN && y == -1))
